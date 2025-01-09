@@ -36,8 +36,11 @@
   .card__image {
     height: 288px;
     width: 288px;
-    margin-top: 20px;
-    margin-bottom: 12px;
+    margin: 20px 0 12px;
+  }
+
+  .card__content {
+    margin-bottom: 20px;
   }
 
   .card__title {
