@@ -1,13 +1,14 @@
 .profile {
   display: flex;
-  justify-content: space-between;
-  margin: auto;
+  margin: 0 auto;
   padding: 34px 0 20px;
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
-  top: 80px;
-  right: 80px;
-  min-width: 1280px;
-  height: 210px;
+  max-width: 1280px;
+}
+
+.page__section {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .profile__avatar {
@@ -16,23 +17,36 @@
   height: 190px;
   border-radius: 10px;
   gap: 20px;
-  margin-left: 80px;
-  right: 80px;
 }
 
 .profile__column {
   display: flex;
   flex-direction: column;
-  width: 420px;
-  height: 190px;
 }
 
 .profile__name {
   margin: 0 0 12px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-clamp: 3;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
 }
 
 .profile__description {
   margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-clamp: 3;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
 }
 
 .profile__edit-btn {
@@ -44,21 +58,52 @@
   opacity: 0.7;
   border: none;
   background-color: transparent;
+  padding: 0;
 }
 
 .profile__add-btn {
-  align-items: center;
-  margin-top: 138px;
   margin-left: auto;
-  margin-right: 80px;
-  margin-bottom: 20px;
-  padding: 18px 32px 18px 32px;
-  gap: 8px;
+  margin-top: auto;
   border-radius: 8px;
   background-color: #212121;
   color: #fcf5e5;
   width: 149px;
   height: 52px;
-  line-height: 16px;
-  align-self: flex-end;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .profile__avatar {
+    margin: 0 0 12px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .profile__column {
+    align-items: center;
+    margin: 0 0 20px;
+  }
+
+  .profile__name {
+    font-size: 20px;
+    margin: 0 0 12px;
+    max-width: 288px;
+  }
+
+  .profile__description {
+    margin: 0 0 32px;
+    max-width: 288px;
+  }
+
+  .profile__add-btn {
+    margin: 0;
+    width: 100%;
+  }
 }
