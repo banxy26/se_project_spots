@@ -16,7 +16,7 @@ Spots is user friendly, as it is designed for viewing on all screen sizes/device
 
 This website is deployed to GitHub Pages
 
-- [Link to the project on GitHub]()
+- [Link to 'Spots' project on GitHub](https://banxy26.github.io/se_project_spots/)
 
 ## Images of project
 
