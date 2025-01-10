@@ -1,21 +1,27 @@
-# Project 3: Spots
+# Project Title: Spots
 
-### Overview
+## Description
 
-- Intro
-- Figma
-- Images
+Spots is a responsive and informative website, built to share images and information on Bessie Coleman and other artists' work
+alike.
+Spots is user friendly, as it is designed for viewing on all screen sizes/devices.
 
-**Intro**
+## Tech Stack
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+- HTML
+- CSS
+- Responsive design
 
-**Figma**
+## Deployment
 
-- [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
+This website is deployed to GitHub Pages
 
-**Images**
+- [Link to the project on GitHub]()
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
+## Images of project
 
-Good luck and have fun!
+![Screenshot of 1440px viewport](./images/Spots-Screenshot-1440px%20view.jpg)
+
+![Screenshot of 320px viewport-top](./images/Spots-Screenshot-320px-top%20view.jpg)
+
+![Screenshot of 320px viewport-bottom](./images/Spots-Screenshot-320px%20bottom%20view.jpg)

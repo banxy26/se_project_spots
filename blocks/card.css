@@ -28,8 +28,15 @@
   border: none;
   width: 23px;
   height: 20px;
+  color: #212121;
   background-color: transparent;
   opacity: 40%;
+  border: 2px;
+}
+.card__like-button:hover {
+  color: #212121;
+  left: 65px;
+  opacity: 1;
 }
 
 @media screen and (max-width: 627px) {
@@ -45,5 +52,6 @@
 
   .card__title {
     margin: 0;
+    max-width: 250px;
   }
 }

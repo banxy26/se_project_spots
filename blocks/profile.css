@@ -53,12 +53,19 @@
   display: flex;
   margin-top: auto;
   height: 16px;
-  line-height: 16px;
+  line-height: 1;
   gap: 8px 8px;
+  color: #212121;
   opacity: 0.7;
   border: none;
   background-color: transparent;
   padding: 0;
+}
+
+.profile__edit-btn:hover {
+  color: #212121;
+  opacity: 1;
+  top: 56px;
 }
 
 .profile__add-btn {
@@ -69,6 +76,12 @@
   color: #fcf5e5;
   width: 149px;
   height: 52px;
+  border: none; /*when hovering, a border showed up on both default and hover state. */
+}
+
+.profile__add-btn:hover {
+  background-color: rgba(33, 33, 33, 0.8);
+  border: none;
 }
 
 @media screen and (max-width: 627px) {
