@@ -9,6 +9,10 @@
   padding-bottom: 60px;
 }
 
+.footer__copyright {
+  margin: 0;
+}
+
 @media screen and (max-width: 627px) {
   .footer {
     padding-right: 20px;

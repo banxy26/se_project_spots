@@ -6,17 +6,11 @@
   max-width: 1280px;
 }
 
-.page__section {
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
 .profile__avatar {
   margin-right: 20px;
   width: 190px;
   height: 190px;
   border-radius: 8px;
-  gap: 20px;
 }
 
 .profile__column {
@@ -26,6 +20,7 @@
 
 .profile__name {
   margin: 0 0 12px;
+  color: rgba(33, 33, 33, 1);
   font-weight: 500;
   font-size: 32px;
   line-height: 1;
@@ -40,6 +35,10 @@
 
 .profile__description {
   margin: 0;
+  color: rgba(33, 33, 33, 0.7);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
   text-overflow: ellipsis;
   overflow: hidden;
   line-clamp: 3;
@@ -51,6 +50,7 @@
 
 .profile__edit-btn {
   display: flex;
+  font-weight: 500;
   margin-top: auto;
   height: 16px;
   line-height: 1;
@@ -60,6 +60,7 @@
   border: none;
   background-color: transparent;
   padding: 0;
+  cursor: pointer;
 }
 
 .profile__edit-btn:hover {
@@ -68,20 +69,26 @@
   top: 56px;
 }
 
+.profile__add-icon {
+  margin: 0 8px 0 0;
+}
 .profile__add-btn {
   margin-left: auto;
   margin-top: auto;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
   border-radius: 8px;
   background-color: #212121;
   color: #fcf5e5;
   width: 149px;
   height: 52px;
-  border: none; /*when hovering, a border showed up on both default and hover state. */
+  cursor: pointer;
+  border: none;
 }
 
 .profile__add-btn:hover {
   background-color: rgba(33, 33, 33, 0.8);
-  border: none;
 }
 
 @media screen and (max-width: 627px) {
