@@ -18,6 +18,8 @@ This website is deployed to GitHub Pages
 
 - [Link to 'Spots' project on GitHub](https://banxy26.github.io/se_project_spots/)
 
+- [Link to Video presentation on Microsoft OneDrive](https://1drv.ms/v/c/b42ec56b63590712/ES2E0KeHEeBFjzuccF62eyQBVN7pmkxobJPnovUlMEdVkg?e=uK2WLR)
+
 ## Images of project
 
 ![Screenshot of 1440px viewport](./images/Spots-Screenshot-1440px%20view.jpg)
