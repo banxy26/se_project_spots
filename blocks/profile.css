@@ -64,9 +64,7 @@
 }
 
 .profile__edit-btn:hover {
-  color: #212121;
   opacity: 1;
-  top: 56px;
 }
 
 .profile__add-icon {
