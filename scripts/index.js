@@ -25,4 +25,6 @@ const initialCards = [
   },
 ];
 
-console.log(initialCards);
+for (let i = 0; i < initialCards.length; i++) {
+  console.log(initialCards[6]);
+}
