@@ -41,3 +41,53 @@ function closeModal() {
 profileEditButton.addEventListener("click", openModal);
 
 editModalCloseBtn.addEventListener("click", closeModal);
+
+const profileFormElement = document.querySelector("#editProfileForm");
+console.log(profileFormElement);
+
+const nameInput = document.querySelector("#name");
+console.log(nameInput);
+const descriptionInput = document.querySelector("#description");
+console.log(descriptionInput);
+
+const profileNameElement = document.querySelector(".profile__name");
+console.log(profileNameElement);
+const profileDescriptionElement = document.querySelector(
+  ".profile__description"
+);
+console.log(profileDescriptionElement);
+
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+
+  profileNameElement.textContent = nameInput.value;
+  profileDescriptionElement.textContent = descriptionInput.value;
+
+  closeModal();
+}
+
+profileFormElement.addEventListener("submit", handleProfileFormSubmit);
+
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
+console.log(cardTemplate);
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImage = cardElement.querySelector(".card__image");
+  const cardTitle = cardElement.querySelector(".card__title");
+
+  cardImage.src = data.link;
+  cardTitle.textContent = data.name;
+  cardImage.alt = data.name;
+
+  return cardElement;
+}
+
+const cardList = document.querySelector(".cards__list");
+console.log(cardList);
+
+for (let i = 0; i < initialCards.length; i++) {
+  cardList.append(getCardElement(initialCards[i]));
+}
