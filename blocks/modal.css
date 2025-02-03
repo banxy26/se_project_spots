@@ -107,7 +107,6 @@
     padding: 12px;
     max-width: 300px;
     border-radius: 8px;
-    gap: 24px;
   }
 
   .modal__title {
@@ -125,7 +124,7 @@
     line-height: 1;
     text-align: left;
     margin-bottom: 24px;
-    color: rgba(33, 33, 33, 0.3);
+    color: rgba(33, 33, 33, 1);
   }
 
   .modal__close-btn {
