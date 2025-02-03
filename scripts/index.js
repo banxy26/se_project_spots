@@ -31,6 +31,8 @@ const editModal = document.querySelector("#edit-modal");
 const editModalCloseBtn = document.querySelector(".modal__close-btn");
 
 function openModal() {
+  nameInput.value = profileNameElement.textContent;
+  descriptionInput.value = profileDescriptionElement.textContent;
   editModal.classList.add("modal_opened");
 }
 
