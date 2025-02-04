@@ -26,6 +26,7 @@
   gap: 32px;
   border-radius: 8px;
   width: calc(100% - 20px);
+  box-sizing: border-box;
 }
 
 .modal__close-btn {
