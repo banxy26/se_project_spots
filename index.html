@@ -48,10 +48,7 @@
             <img class="card__image" src="" alt="" />
             <div class="card__content">
               <h2 class="card__title"></h2>
-              <button
-                type="button"
-                class="card__like-button card__like-button_liked"
-              ></button>
+              <button type="button" class="card__like-button"></button>
             </div>
           </li>
         </template>
@@ -93,6 +90,7 @@
         </form>
       </div>
     </div>
+
     <div class="modal" id="add-card-modal">
       <div class="modal__container">
         <button type="button" class="modal__close-btn">
@@ -102,6 +100,7 @@
             alt="icon"
           />
         </button>
+
         <h2 class="modal__title">New Post</h2>
         <form id="addCardForm" class="modal__form">
           <label for="addCardLinkInput" class="modal__label">
@@ -126,6 +125,18 @@
           </label>
           <button type="submit" class="modal__submit-btn">Save</button>
         </form>
+      </div>
+    </div>
+    <div class="modal" id="preview-modal">
+      <div class="modal__container_type_preview">
+        <button
+          aria-label="Close modal"
+          type="button"
+          class="modal__close-btn modal__close_type_preview"
+        ></button>
+
+        <img class="modal__image" src="" alt="" />
+        <p class="modal__caption"></p>
       </div>
     </div>
     <script src="scripts/index.js" defer></script>

@@ -21,6 +21,5 @@
     grid-template-columns: repeat(auto-fit, 288px);
     margin: 0 0 20px;
     padding: 0 0 20px;
-    /* I did not see the 320 changes until I submitted. I did go back and change them :-) */
   }
 }
