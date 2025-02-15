@@ -163,7 +163,7 @@
   }
 
   .modal__title {
-    margin-bottom: 10px 0 24px;
+    /*margin-bottom: 10px 0 24px;*/
     max-width: 276px;
     font: 500 20px/1;
   }
