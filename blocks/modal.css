@@ -139,7 +139,7 @@
   .modal {
     padding: 0 10px;
     overflow-x: hidden;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.85);
   }
 
   .modal__container {
@@ -149,8 +149,6 @@
   }
 
   .modal__container_type_preview {
-    max-width: 80vw;
-    max-height: 80vh;
     opacity: 1;
   }
 
