@@ -43,6 +43,8 @@
         </div>
         <template id="card-template">
           <li class="card">
+            <button type="button" class="card__trash-btn"></button>
+
             <img class="card__image" src="" alt="" />
             <div class="card__content">
               <h2 class="card__title"></h2>
@@ -57,14 +59,16 @@
     </div>
     <div class="modal" id="edit-modal">
       <div class="modal__container">
-        <button type="button" class="modal__close-btn">
-          <img
-            src="./images/closeXicon.svg"
-            class="modal__close-icon"
-            alt="icon"
-          />
-        </button>
-        <h2 class="modal__title">Edit profile</h2>
+        <div class="modal__title-close">
+          <h2 class="modal__title">Edit profile</h2>
+          <button type="button" class="modal__close-btn">
+            <img
+              src="./images/closeXicon.svg"
+              class="modal__close-icon"
+              alt="icon"
+            />
+          </button>
+        </div>
         <form id="editProfileForm" name="edit profile" class="modal__form">
           <label for="name" class="modal__label">
             Name
@@ -88,16 +92,20 @@
         </form>
       </div>
     </div>
+
     <div class="modal" id="add-card-modal">
       <div class="modal__container">
-        <button type="button" class="modal__close-btn">
-          <img
-            src="./images/closeXicon.svg"
-            class="modal__close-icon"
-            alt="icon"
-          />
-        </button>
-        <h2 class="modal__title">New Post</h2>
+        <div class="modal__title-close">
+          <h2 class="modal__title">New post</h2>
+          <button type="button" class="modal__close-btn">
+            <img
+              src="./images/closeXicon.svg"
+              class="modal__close-icon"
+              alt="icon"
+            />
+          </button>
+        </div>
+
         <form id="addCardForm" class="modal__form">
           <label for="addCardLinkInput" class="modal__label">
             Image Link
@@ -124,11 +132,11 @@
       </div>
     </div>
     <div class="modal" id="preview-modal">
-      <div class="modal__container_type_preview">
+      <div class="modal__container-image">
         <button
           aria-label="Close modal"
           type="button"
-          class="modal__close-btn modal__close_type_preview"
+          class="modal__close-btn modal__close-btn_type_preview"
         ></button>
         <img class="modal__image" src="" alt="" />
         <p class="modal__caption"></p>

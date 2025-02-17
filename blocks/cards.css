@@ -4,13 +4,15 @@
 
 .cards__list {
   list-style-type: none;
-  padding: 0;
+  padding: 36px 0;
   margin: 0;
+  row-gap: 40px;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 413px);
   column-gap: 20px;
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+  border-top: 1px rgba(33, 33, 33, 0.4) solid;
 }
 
 @media screen and (max-width: 627px) {
@@ -20,6 +22,7 @@
   .cards__list {
     grid-template-columns: repeat(auto-fit, 288px);
     margin: 0 0 20px;
-    padding: 0 0 20px;
+    padding: 20px 0;
+    row-gap: 20px;
   }
 }

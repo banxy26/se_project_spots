@@ -55,10 +55,6 @@ const descriptionInput = document.querySelector("#description");
 // Card Elements
 const cardList = document.querySelector(".cards__list");
 
-const cardTemplate = document
-  .querySelector("#card-template")
-  .content.querySelector(".card");
-
 // Preview Elements
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
@@ -103,10 +99,14 @@ function handleLikeBtn(evt) {
 }
 
 function getCardElement(data) {
+  const cardTemplate = document
+    .querySelector("#card-template")
+    .content.querySelector(".card");
   const cardElement = cardTemplate.cloneNode(true);
   const cardTitle = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardLikeBtn = cardElement.querySelector(".card__like-button");
+  const cardTrashBtn = cardElement.querySelector(".card__trash-btn");
 
   cardTitle.textContent = data.name;
   cardImageEl.src = data.link;
@@ -117,6 +117,10 @@ function getCardElement(data) {
     previewModalImageEl.alt = data.link;
     previewModalCaptionEl.textContent = data.name;
     openModal(previewModal);
+  });
+
+  cardTrashBtn.addEventListener("click", () => {
+    cardElement.remove();
   });
 
   cardLikeBtn.addEventListener("click", handleLikeBtn);
