@@ -25,11 +25,11 @@
   border: none;
   top: 10px;
   right: 10px;
-  cursor: pointer;
 }
 
 .card__trash-btn:hover {
   background: url("../images/trashIconHover.svg");
+  cursor: pointer;
 }
 
 .card__title {
