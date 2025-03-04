@@ -111,7 +111,7 @@ function handleAddCardSubmit(evt) {
   cardList.prepend(cardEl);
   evt.target.reset();
   closeModal(cardModal);
-  disableButton(cardSubmitBtn);
+  disableButton(cardSubmitBtn, validationConfig);
 }
 
 function handleLikeBtn(evt) {
