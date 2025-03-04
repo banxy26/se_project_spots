@@ -40,8 +40,9 @@ const profileDescriptionElement = document.querySelector(
 // Card Form Elements
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = cardModal.querySelector(".modal__form");
-const cardNameInput = cardModal.querySelector("#addCardNameInput");
-const cardLinkInput = cardModal.querySelector("#addCardLinkInput");
+const cardSubmitBtn = cardModal.querySelector(".modal__submit-btn");
+const cardNameInput = cardModal.querySelector("#card-caption-input");
+const cardLinkInput = cardModal.querySelector("#card-link-input");
 
 // Edit Form Elements
 const editModal = document.querySelector("#edit-modal");
@@ -62,15 +63,34 @@ const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 
 // Modal Elements
 const closeButtons = document.querySelectorAll(".modal__close-btn");
+const modals = document.querySelectorAll(".modal");
+console.log(modals);
 
 // Functions
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keyup", escClose);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keyup", escClose);
 }
+
+function escClose(evt) {
+  if (evt.key === "Escape") {
+    const activeModal = document.querySelector(".modal_opened");
+    closeModal(activeModal);
+  }
+}
+
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("modal")) {
+      closeModal(modal);
+    }
+  });
+});
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -81,11 +101,17 @@ function handleProfileFormSubmit(evt) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
+  console.log("is this submitting");
+  const inputValues = {
+    name: cardNameInput.value,
+    link: cardLinkInput.value,
+  };
+
   const cardEl = getCardElement(inputValues);
   cardList.prepend(cardEl);
   evt.target.reset();
   closeModal(cardModal);
+  disableButton(cardSubmitBtn);
 }
 
 function handleLikeBtn(evt) {
@@ -125,7 +151,7 @@ function getCardElement(data) {
 profileEditButton.addEventListener("click", () => {
   nameInput.value = profileNameElement.textContent;
   descriptionInput.value = profileDescriptionElement.textContent;
-
+  resetValidation(editForm, [nameInput, descriptionInput], validationConfig);
   openModal(editModal);
 });
 

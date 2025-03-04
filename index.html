@@ -38,7 +38,6 @@
             New Post
           </button>
         </section>
-
         <div class="cards page__section">
           <ul class="cards__list"></ul>
         </div>
@@ -82,9 +81,10 @@
               maxlength="40"
               required
             />
-            <span class="modal__error" id="edit-profile-form-name-error"></span>
+            <span class="modal__error" id="edit-profile-form-name-error"
+              >Please fill out this field.</span
+            >
           </label>
-
           <label for="description" class="modal__label">
             Description
             <input
@@ -97,13 +97,14 @@
               maxlength="200"
               required
             />
-            <span
-              class="modal__error"
-              id="edit-profile-form-description-error"
-            ></span>
+            <span class="modal__error" id="edit-profile-form-description-error"
+              >Please lengthen this text to 2 characters or more (you are
+              currently usina 1 character).</span
+            >
           </label>
-
-          <button type="submit" class="modal__submit-btn">Save</button>
+          <button type="submit" class="modal__button modal__submit-btn">
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -120,7 +121,7 @@
           </button>
         </div>
         <form id="card-form" class="modal__form">
-          <label for="addCardLinkInput" class="modal__label">
+          <label class="modal__label">
             Image Link
             <input
               id="card-link-input"
@@ -130,10 +131,11 @@
               type="url"
               required
             />
-            <span id="card-link-input-error" class="modal__error"></span>
+            <span id="card-link-input-error" class="modal__error"
+              >Please enter a URL.</span
+            >
           </label>
-
-          <label for="addCardNameInput" class="modal__label">
+          <label class="modal__label">
             Caption
             <input
               id="card-caption-input"
@@ -145,10 +147,13 @@
               maxlength="30"
               required
             />
-            <span class="modal__error" id="card-caption-input-error"></span>
+            <span class="modal__error" id="card-caption-input-error"
+              >Please fill out this field.</span
+            >
           </label>
-
-          <button type="submit" class="modal__submit-btn">Save</button>
+          <button type="submit" class="modal__button modal__submit-btn">
+            Save
+          </button>
         </form>
       </div>
     </div>
