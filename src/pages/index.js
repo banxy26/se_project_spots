@@ -1,3 +1,15 @@
+import logoPath from "../images/logo.svg";
+import avatarPath from "../images/avatar.jpg";
+import pencilPath from "../images/pencil.svg";
+import addPath from "../images/add.svg";
+import closeIconPath from "../images/closeXicon.svg";
+import "./index.css";
+import {
+  enableValidation,
+  validationConfig,
+  resetValidation,
+} from "../scripts/validation.js";
+
 const initialCards = [
   {
     name: "Golden Gate Bridge",
@@ -64,7 +76,6 @@ const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 // Modal Elements
 const closeButtons = document.querySelectorAll(".modal__close-btn");
 const modals = document.querySelectorAll(".modal");
-console.log(modals);
 
 // Functions
 function openModal(modal) {
@@ -101,7 +112,6 @@ function handleProfileFormSubmit(evt) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  console.log("is this submitting");
   const inputValues = {
     name: cardNameInput.value,
     link: cardLinkInput.value,
@@ -172,3 +182,5 @@ initialCards.forEach((item) => {
   const cardEl = getCardElement(item);
   cardList.append(cardEl);
 });
+
+enableValidation(validationConfig);
