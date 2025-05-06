@@ -9,8 +9,9 @@ import {
   validationConfig,
   resetValidation,
 } from "../scripts/validation.js";
+import Api from "../utils/Api.js";
 
-const initialCards = [
+/*const initialCards = [
   {
     name: "Golden Gate Bridge",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
@@ -39,9 +40,52 @@ const initialCards = [
     name: "Mountain house",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
-];
+];*/
+
+// index.js
+
+/*const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "2e661282-4906-4418-ad51-a48303cbd2a5",
+    "Content-Type": "application/json",
+  },
+});*/
+
+const api = new Api("https://around-api.en.tripleten-services.com/v1", {
+  authorization: "2e661282-4906-4418-ad51-a48303cbd2a5",
+  "Content-Type": "application/json",
+});
+
+/*api
+  .getInitialCards()
+  // destructure the second item in the callback of the .then()
+  .then(([cards]) => {
+    console.log(cards);
+    cards.forEach((item) => {
+      const cardEl = getCardElement(item);
+      cardList.append(cardEl);
+    });
+  });*/
+
+api
+  .getAppInfo()
+  .then(([cards, userInfo]) => {
+    profileAvatarElement.src = avatarPath;
+    profileNameElement.textContent = userInfo.name;
+    profileDescriptionElement.textContent = userInfo.about;
+
+    cards.forEach((cardData) => {
+      const cardEl = getCardElement(cardData);
+      cardList.prepend(cardEl);
+    });
+  })
+  .catch((err) => {
+    console.error("Error:", err);
+  });
 
 // Profile Elements
+const profileAvatarElement = document.querySelector(".profile__avatar");
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const cardModalButton = document.querySelector(".profile__add-btn");
 const profileNameElement = document.querySelector(".profile__name");
@@ -105,9 +149,14 @@ modals.forEach((modal) => {
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  profileNameElement.textContent = nameInput.value;
-  profileDescriptionElement.textContent = descriptionInput.value;
-  closeModal(editModal);
+  api
+    .editUserInfo({ name: nameInput.value, about: descriptionInput.value })
+    .then((data) => {
+      profileNameElement.textContent = data.name;
+      profileDescriptionElement.textContent = data.about;
+      closeModal(editModal);
+    })
+    .catch(console.error);
 }
 
 function handleAddCardSubmit(evt) {
@@ -177,10 +226,5 @@ closeButtons.forEach((button) => {
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 
 cardForm.addEventListener("submit", handleAddCardSubmit);
-
-initialCards.forEach((item) => {
-  const cardEl = getCardElement(item);
-  cardList.append(cardEl);
-});
 
 enableValidation(validationConfig);
