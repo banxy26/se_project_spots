@@ -11,83 +11,16 @@ import {
 } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
 
-/*const initialCards = [
-  {
-    name: "Golden Gate Bridge",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
-  },
-  {
-    name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-  {
-    name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-];*/
-
-// index.js
-
-/*const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  headers: {
-    authorization: "2e661282-4906-4418-ad51-a48303cbd2a5",
-    "Content-Type": "application/json",
-  },
-});*/
-
 const api = new Api("https://around-api.en.tripleten-services.com/v1", {
   authorization: "2e661282-4906-4418-ad51-a48303cbd2a5",
   "Content-Type": "application/json",
 });
 
-/*api
-  .getInitialCards()
-  // destructure the second item in the callback of the .then()
-  .then(([cards]) => {
-    console.log(cards);
-    cards.forEach((item) => {
-      const cardEl = getCardElement(item);
-      cardList.append(cardEl);
-    });
-  });*/
-
-api
-  .getAppInfo()
-  .then(([cards, userInfo]) => {
-    profileAvatarElement.src = avatarPath;
-    profileNameElement.textContent = userInfo.name;
-    profileDescriptionElement.textContent = userInfo.about;
-
-    cards.forEach((cardData) => {
-      const cardEl = getCardElement(cardData);
-      cardList.prepend(cardEl);
-    });
-  })
-  .catch((err) => {
-    console.error("Error:", err);
-  });
-
 // Profile Elements
 const profileAvatarElement = document.querySelector(".profile__avatar");
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const cardModalButton = document.querySelector(".profile__add-btn");
+const avatarModalButton = document.querySelector(".profile__avatar-btn");
 const profileNameElement = document.querySelector(".profile__name");
 const profileDescriptionElement = document.querySelector(
   ".profile__description"
@@ -99,6 +32,16 @@ const cardForm = cardModal.querySelector(".modal__form");
 const cardSubmitBtn = cardModal.querySelector(".modal__submit-btn");
 const cardNameInput = cardModal.querySelector("#card-caption-input");
 const cardLinkInput = cardModal.querySelector("#card-link-input");
+
+// Avatar Form Elements
+const avatarModal = document.querySelector("#avatar-modal");
+const avatarForm = avatarModal.querySelector(".modal__form");
+const avatarSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
+const avatarCloseButton = avatarModal.querySelectorAll(".modal__close-btn");
+const avatarInput = avatarModal.querySelector("#profile-avatar-input");
+
+// Delete Form Elements
+const deleteModal = document.querySelector("#delete-modal");
 
 // Edit Form Elements
 const editModal = document.querySelector("#edit-modal");
@@ -120,6 +63,22 @@ const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 // Modal Elements
 const closeButtons = document.querySelectorAll(".modal__close-btn");
 const modals = document.querySelectorAll(".modal");
+
+api
+  .getAppInfo()
+  .then(([cards, userInfo]) => {
+    profileAvatarElement.src = avatarPath;
+    profileNameElement.textContent = userInfo.name;
+    profileDescriptionElement.textContent = userInfo.about;
+
+    cards.forEach((cardData) => {
+      const cardEl = getCardElement(cardData);
+      cardList.prepend(cardEl);
+    });
+  })
+  .catch((err) => {
+    console.error("Error:", err);
+  });
 
 // Functions
 function openModal(modal) {
@@ -173,6 +132,28 @@ function handleAddCardSubmit(evt) {
   disableButton(cardSubmitBtn, validationConfig);
 }
 
+function handleAvatarSubmit(evt) {
+  evt.preventDefault();
+  console.log("Avatar URL being sent:");
+
+  api
+    .editAvatarInfo({ avatar: avatarInput.value })
+    .then((data) => {
+      console.log(data.avatar);
+      // make this work, set new avatar element, the src of the avatar image
+    })
+    .catch(console.error);
+}
+
+function handleDeleteCards(evt) {
+  openModal(deleteModal);
+}
+
+document.querySelector("#delete-form").addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  // Add your card deletion code here
+});
+
 function handleLikeBtn(evt) {
   evt.target.classList.toggle("card__like-button_liked");
 }
@@ -199,7 +180,7 @@ function getCardElement(data) {
   });
 
   cardTrashBtn.addEventListener("click", () => {
-    cardElement.remove();
+    openModal(document.querySelector("#delete-modal"));
   });
 
   cardLikeBtn.addEventListener("click", handleLikeBtn);
@@ -220,11 +201,24 @@ cardModalButton.addEventListener("click", () => {
 
 closeButtons.forEach((button) => {
   const modal = button.closest(".modal");
-  button.addEventListener("click", () => closeModal(modal));
+  button.addEventListener("click", () => {
+    if (modal === avatarModal) {
+      closeModal(avatarModal);
+      openModal(deleteModal);
+    } else {
+      closeModal(modal);
+    }
+  });
 });
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 
 cardForm.addEventListener("submit", handleAddCardSubmit);
+
+avatarModalButton.addEventListener("click", () => {
+  openModal(avatarModal);
+});
+
+avatarForm.addEventListener("submit", handleAvatarSubmit);
 
 enableValidation(validationConfig);

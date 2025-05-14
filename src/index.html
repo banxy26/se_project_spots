@@ -74,7 +74,7 @@
         <p class="footer__copyright">2025 &copy; Spots</p>
       </footer>
     </div>
-    <div class="modal" id="edit-modal">
+    <div class="modal modal__opened" id="edit-modal">
       <div class="modal__container">
         <div class="modal__title-close">
           <h2 class="modal__title">Edit profile</h2>
@@ -175,15 +175,87 @@
         </form>
       </div>
     </div>
+
     <div class="modal" id="preview-modal">
       <div class="modal__container-image">
         <button
-          aria-label="Close modal"
           type="button"
           class="modal__close-btn modal__close-btn_type_preview"
-        ></button>
+        >
+          <img
+            src="<%=require('./images/close-light.svg')%>"
+            class="modal__close-icon"
+            alt="Close"
+          />
+        </button>
         <img class="modal__image" src="" alt="" />
         <p class="modal__caption"></p>
+      </div>
+    </div>
+
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <div class="modal__title-close">
+          <h2 class="modal__title">Edit profile avatar</h2>
+          <button type="button" class="modal__close-btn">
+            <img
+              src="<%=require('./images/closeXicon.svg')%>"
+              class="modal__close-icon"
+              alt="icon"
+            />
+          </button>
+        </div>
+
+        <form id="editAvatarForm" name="edit profile" class="modal__form">
+          <label class="modal__label" for="profile-avatar-input">
+            Avatar
+            <input
+              id="profile-avatar-input"
+              class="modal__input"
+              name="avatar"
+              placeholder="Paste the link to an image"
+              type="text"
+              required
+            />
+            <span class="modal__error" id="profile-avatar-input-error"
+              >Please fill out this field.</span
+            >
+          </label>
+          <button type="submit" class="modal__button modal__submit-btn">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="delete-modal">
+      <div class="modal__container">
+        <div class="modal__title-close">
+          <h2 class="modal__title">
+            Are you sure you want to delete this image?
+          </h2>
+          <button type="button" class="modal__close-btn">
+            <img
+              src="<%=require('./images/closeXicon.svg')%>"
+              class="modal__close-icon"
+              alt="Close"
+            />
+          </button>
+        </div>
+        <form id="delete-form" class="modal__form">
+          <button
+            type="submit"
+            class="modal__submit-btn modal__submit-btn_type_delete"
+          >
+            Delete
+          </button>
+          <button
+            type="button"
+            class="modal__submit-btn modal__submit-btn_type_cancel"
+          >
+            Cancel
+          </button>
+        </form>
       </div>
     </div>
   </body>
