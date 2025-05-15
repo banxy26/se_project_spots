@@ -29,7 +29,6 @@
   padding: 32px 50px;
   max-width: 730px;
   height: fit-content;
-  max-height: 298px;
   position: relative;
   border-radius: 8px;
   width: calc(100% - 20px);
@@ -78,7 +77,6 @@
   top: 16px;
   right: 16px;
   background-color: transparent;
-  border: 2px solid rgba(255, 255, 255, 1);
   border: none;
   cursor: pointer;
   z-index: 100;
@@ -95,18 +93,6 @@
   background-repeat: no-repeat;
   opacity: 1;
   z-index: 10;
-}
-
-#preview-modal .modal__close-btn {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 40px;
-  height: 40px;
-  background-image: url(../images/close-light.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 1;
   cursor: pointer;
 }
 
@@ -206,7 +192,7 @@
   background: #212121;
   color: white;
   border-radius: 8px;
-  max-width: 156px;
+  width: 156px;
   height: 52px;
   padding: 18px 32px;
   font-weight: 500;
@@ -357,22 +343,6 @@
     width: 100%;
     max-width: none;
   }
-
-  /*#delete-modal .modal__container {
-    /* width: 300px;
-
-    padding: 12px;
-    gap: 20px;
-
-    max-width: 300px;
-    height: auto;
-    padding: 12px;
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  }*/
 
   #delete-form {
     width: 276px;
