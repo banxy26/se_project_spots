@@ -68,6 +68,9 @@ const modals = document.querySelectorAll(".modal");
 api
   .getAppInfo()
   .then(([cards, userInfo]) => {
+    api.userId = userInfo._id;
+    console.log("Cards data:", cards);
+    console.log("User ID:", userInfo._id);
     profileAvatarElement.src = userInfo.avatar;
     profileNameElement.textContent = userInfo.name;
     profileDescriptionElement.textContent = userInfo.about;
@@ -173,7 +176,13 @@ function handleDeleteCard(cardElement, cardId) {
 }
 
 function handleLikeBtn(evt, id) {
-  evt.target.classList.toggle("card__like-button_liked");
+  const isLiked = evt.target.classList.contains("card__like-button_liked");
+  api
+    .changeLikeStatus(id, isLiked)
+    .then((updatedCard) => {
+      evt.target.classList.toggle("card__like-button_liked");
+    })
+    .catch(console.error);
 }
 
 function getCardElement(data) {
@@ -187,11 +196,13 @@ function getCardElement(data) {
   const cardLikeBtn = cardElement.querySelector(".card__like-button");
   const cardTrashBtn = cardElement.querySelector(".card__trash-btn");
 
-  // if the card is liked, set the active class on the card
-
   cardTitle.textContent = data.name;
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
+
+  if (data.isLiked) {
+    cardLikeBtn.classList.add("card__like-button_liked");
+  }
 
   cardLikeBtn.addEventListener("click", (evt) => handleLikeBtn(evt, data._id));
   cardTrashBtn.addEventListener("click", (evt) =>
