@@ -126,17 +126,19 @@
     width: 80px;
   }
 
-  .profile__avatar-btn {
+  /* .profile__avatar-btn {
     visibility: visible;
     border-radius: 8%;
-    /* finish mobile btn avatar styles */
-  }
 
-  .profile__avatar-btn::after {
-    content: "";
-  }
+    /* finish mobile btn avatar styles
+}*?
 
-  .profile__column {
+.profile__avatar-btn::after {
+  content: "";
+}
+*/
+
+  .profile .profile__column {
     align-items: center;
     margin: 0 0 20px;
   }
