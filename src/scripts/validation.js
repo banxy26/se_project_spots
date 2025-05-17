@@ -10,8 +10,8 @@ export const validationConfig = {
 
 const showInputError = (formEl, inputElement, errorMsg, config) => {
   const errorMsgId = `#${inputElement.id}-error`;
-  // const errorElement = formEl.querySelector(errorMsgId);
-  formEl.querySelector(`${errorMsgId}.modal__error`);
+  const errorElement = formEl.querySelector(errorMsgId);
+  // formEl.querySelector(`${errorMsgId}.modal__error`);
   inputElement.classList.add(config.inputErrorClass);
   errorElement.textContent = errorMsg;
   errorElement.classList.add(config.errorClass);
@@ -19,8 +19,8 @@ const showInputError = (formEl, inputElement, errorMsg, config) => {
 
 const hideInputError = (formEl, inputElement, config) => {
   const errorMsgId = `#${inputElement.id}-error`;
-  // const errorElement = formEl.querySelector(errorMsgId);
-  formEl.querySelector(`${errorMsgId}.modal__error`);
+  const errorElement = formEl.querySelector(errorMsgId);
+  // formEl.querySelector(`${errorMsgId}.modal__error`);
   inputElement.classList.remove(config.inputErrorClass);
   errorElement.classList.remove(config.errorClass);
   errorElement.textContent = "";

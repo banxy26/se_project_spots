@@ -24,7 +24,7 @@
           <div class="profile__avatar-container">
             <button class="profile__avatar-btn">
               <img
-                class="profile__pencil-icon"
+                class="profile__avatar-icon"
                 src="<%=require('./images/pencil-light.svg')%>"
                 alt="Pencil icon"
               />
@@ -228,7 +228,10 @@
           <h2 class="modal__title">
             Are you sure you want to delete this image?
           </h2>
-          <button type="button" class="modal__close-btn">
+          <button
+            type="button"
+            class="modal__close-btn modal__close-btn_type_delete"
+          >
             <img
               src="<%=require('./images/closeXicon.svg')%>"
               class="modal__close-icon"

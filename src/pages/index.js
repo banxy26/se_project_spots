@@ -66,25 +66,11 @@ const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 const closeButtons = document.querySelectorAll(".modal__close-btn");
 const modals = document.querySelectorAll(".modal");
 
-// const originalCards = [
-//   { name: "Val Thorens", link: "../src/images/val" },
-//   { name: "Card 2", link: "images/card2.jpg" },
-//   { name: "Card 3", link: "images/card3.jpg" },
-//   { name: "Card 4", link: "images/card4.jpg" },
-//   { name: "Card 5", link: "images/card5.jpg" },
-//   { name: "Card 6", link: "images/card6.jpg" },
-// ];
-
-// originalCards.forEach((cardData) => {
-//   const cardEl = getCardElement(cardData);
-//   cardList.prepend(cardEl);
-// });
-
 api
   .getAppInfo()
   .then(([cards, userInfo]) => {
     api.userId = userInfo._id;
-    // profileAvatarElement.src = userInfo.avatar;
+    profileAvatarElement.src = userInfo.avatar;
     profileNameElement.textContent = userInfo.name;
     profileDescriptionElement.textContent = userInfo.about;
 
