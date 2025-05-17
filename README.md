@@ -2,7 +2,7 @@
 
 ## Description
 
-Spots is a responsive and informative website, built to share images and information on any topic you choose.
+Spots is a responsive and informative website, built to share images and information on any topic of interest.
 Spots is user friendly, as it is designed for viewing on all screen sizes/devices.
 
 ## Tech Stack
