@@ -65,6 +65,7 @@ const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 // Modal Elements
 const closeButtons = document.querySelectorAll(".modal__close-btn");
 const modals = document.querySelectorAll(".modal");
+const cancelButton = document.querySelector(".modal__submit-btn_type_cancel");
 
 api
   .getAppInfo()
@@ -162,6 +163,7 @@ function handleAvatarSubmit(evt) {
     .then((data) => {
       profileAvatarElement.src = data.avatar;
       closeModal(avatarModal);
+      avatarForm.reset();
     })
     .catch(console.error)
     .finally(() => {
@@ -179,6 +181,7 @@ function handleDeleteSubmit(evt) {
     .then(() => {
       selectedCard.remove();
       closeModal(deleteModal);
+      deleteForm.reset();
     })
     .catch(console.error)
     .finally(() => {
@@ -252,6 +255,10 @@ closeButtons.forEach((button) => {
   button.addEventListener("click", () => {
     closeModal(modal);
   });
+});
+
+cancelButton.addEventListener("click", () => {
+  closeModal(deleteModal);
 });
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);

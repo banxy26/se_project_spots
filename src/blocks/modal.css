@@ -222,6 +222,10 @@
   background-color: rgba(33, 33, 33, 0.8);
 }
 
+.modal__submit-btn-disabled {
+  background-color: rgba(33, 33, 33, 0.5);
+}
+
 .modal__submit-btn-disabled:hover {
   cursor: not-allowed;
 }

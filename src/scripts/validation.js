@@ -49,12 +49,16 @@ const toggleButtonState = (inputList, buttonElement, config) => {
   if (hasInvalidInput(inputList)) {
     disableButton(buttonElement, config);
   } else {
-    buttonElement.classList.remove(config.inactiveButtonClass);
-    buttonElement.disabled = false;
+    enableButton(buttonElement, config);
   }
 };
 
-const disableButton = (buttonElement, config) => {
+export const enableButton = (buttonElement, config) => {
+  buttonElement.classList.remove(config.inactiveButtonClass);
+  buttonElement.disabled = false;
+};
+
+export const disableButton = (buttonElement, config) => {
   buttonElement.disabled = true;
   buttonElement.classList.add(config.inactiveButtonClass);
 };
@@ -67,8 +71,7 @@ export const resetValidation = (formEl, inputList, config) => {
 
 const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
-  const buttonElement = formEl.querySelector(config.modalButtonSelector);
-
+  const buttonElement = formEl.querySelector(config.submitButtonSelector);
   toggleButtonState(inputList, buttonElement, config);
 
   inputList.forEach((inputElement) => {
@@ -76,6 +79,10 @@ const setEventListeners = (formEl, config) => {
       checkInputValidity(formEl, inputElement, config);
       toggleButtonState(inputList, buttonElement, config);
     });
+  });
+
+  formEl.addEventListener("submit", function () {
+    disableButton(buttonElement, config);
   });
 };
 
