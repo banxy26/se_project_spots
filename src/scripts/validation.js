@@ -81,8 +81,8 @@ const setEventListeners = (formEl, config) => {
     });
   });
 
-  formEl.addEventListener("submit", function () {
-    disableButton(buttonElement, config);
+  formEl.addEventListener("submit", function (evt) {
+    evt.preventDefault();
   });
 };
 
