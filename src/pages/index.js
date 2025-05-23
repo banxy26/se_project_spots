@@ -146,6 +146,7 @@ function handleAddCardSubmit(evt) {
       cardList.prepend(cardEl);
       closeModal(cardModal);
       cardForm.reset();
+      cardSubmitBtn.disabled = true;
     })
     .catch(console.error)
     .finally(() => {
@@ -164,6 +165,7 @@ function handleAvatarSubmit(evt) {
       profileAvatarElement.src = data.avatar;
       closeModal(avatarModal);
       avatarForm.reset();
+      avatarSubmitBtn.disabled = true;
     })
     .catch(console.error)
     .finally(() => {
@@ -181,7 +183,6 @@ function handleDeleteSubmit(evt) {
     .then(() => {
       selectedCard.remove();
       closeModal(deleteModal);
-      deleteForm.reset();
     })
     .catch(console.error)
     .finally(() => {
