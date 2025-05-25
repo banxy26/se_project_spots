@@ -10,6 +10,7 @@ import {
   resetValidation,
 } from "../scripts/validation.js";
 import { setButtonText } from "../utils/helpers.js";
+import { disableButton } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
 
 const api = new Api("https://around-api.en.tripleten-services.com/v1", {
@@ -146,7 +147,7 @@ function handleAddCardSubmit(evt) {
       cardList.prepend(cardEl);
       closeModal(cardModal);
       cardForm.reset();
-      cardSubmitBtn.disabled = true;
+      disableButton(cardSubmitBtn, validationConfig);
     })
     .catch(console.error)
     .finally(() => {
@@ -165,7 +166,7 @@ function handleAvatarSubmit(evt) {
       profileAvatarElement.src = data.avatar;
       closeModal(avatarModal);
       avatarForm.reset();
-      avatarSubmitBtn.disabled = true;
+      disableButton(avatarSubmitBtn, validationConfig);
     })
     .catch(console.error)
     .finally(() => {
